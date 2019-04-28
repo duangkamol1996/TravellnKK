@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon style="color: violet" name="menu"></ion-icon>
+      </button>
+      <ion-title style="background-color: #d420e9"><font  color="#ffffff"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TRAVEL</font><br>
+        <font  color="#ffffff">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IN</font><br>
+        <font  color="#ffffff">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;KHONKEAN</font>
+        </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+    <ion-card *ngFor="let c of touratt"  (click)="getdetail(c.TourAttID)" >
+        <ion-card-header>
+          
+        </ion-card-header>
+        <ion-card-content>
+           
+          <img src="http://127.0.0.1/{{c.TourAttImg}}"/>
+          <h2 style="font-weight: bold">{{c.TourAttName}}</h2>
+          <p >{{c.TourAttSort}}</p>     
+        
+        
+        </ion-card-content>
+      </ion-card>  
+
+</ion-content>

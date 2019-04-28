@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon style="color: violet" name="menu"></ion-icon>
+    </button>
+    <ion-title style="background-color: #d420e9"><font  color="#ffffff"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;TRAVEL</font><br>
+      <font  color="#ffffff">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IN</font><br>
+      <font  color="#ffffff">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;KHONKEAN</font>
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+   
+
+<ion-content padding>
+<ion-card>
+    <ion-card-header *ngFor="let c of detail">
+      <img src="http://127.0.0.1/{{c.TourAttImg}}"/><br>
+    </ion-card-header>
+    <ion-card-content >
+      <h2 style="font-weight: bold">{{TourAttName}}</h2>
+        {{TourAttInt}}
+    </ion-card-content>
+  </ion-card>
+
+<br>
+
+   <!--  <ion-card>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.1324751532006!2d102.8164533148125!3d16.41809698866629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x312289f70db296ad%3A0x390d39b47361d42f!2z4LiV4Lil4Liy4LiU4LiV4LmJ4LiZ4LiV4Liy4Lil!5e0!3m2!1sth!2sth!4v1545904823343" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </ion-card> -->
+ 
+ <br>
+
+ <ion-card padding center text-center (click)="showAlert()">
+            
+  <p>ให้คะแนนสถานที่ท่องเที่ยวนี้</p>
+
+  <rating [(ngModel)]="rate" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half"     starIconName="star"  nullable="false"  (ngModelChange)="onModelChange($event)" ></rating>
+
+ <h2 center text-center>{{rateshow}}</h2>
+
+
+     
+  </ion-card>
+  
+
+ 
+ <br>
+
+<ion-card (click)="showAlert()">
+      <ion-grid>
+        <textarea  name="text"  placeholder="แสดงความคิดเห็น" style="width: 300px; height: 75px;"  [(ngModel)]="com_comment"></textarea>
+        <img src="{{image}}">
+        <ion-row>
+        
+          <ion-col></ion-col>
+          <ion-col></ion-col>
+          <ion-col></ion-col>
+          <ion-col><div class="fileUpload btn btn-primary">
+            <ion-icon ios="ios-images" md="md-images" style="font-size: 25px; color: rgb(242, 7, 250);" ></ion-icon>
+            <input type="file" (change)="selectFileToUpload($event)" class="upload" />
+        </div></ion-col>
+          <ion-col><ion-icon name="send" style="font-size: 25px; color: rgb(242, 7, 250);" (click)="uploadFile()"></ion-icon></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+{{A}}
+    
+    <br>
+
+
+          <ion-card *ngFor="let c of datalistcom">
+              <ion-item>
+                <ion-avatar item-start>
+                  <img src="{{c.UserImg}}">
+                </ion-avatar>
+                <h2>{{c.UserEMail}}</h2>
+                <p>{{c.com_time}}</p>
+              </ion-item>
+
+              <ion-card-content>
+                  <p>{{c.com_comment}}</p>
+                </ion-card-content>
+
+
+              <img *ngIf="c.com_photo != 'http://localhost/webservice/uploads/00'" src="{{c.com_photo}}">
+          </ion-card>
+
+ 
+</ion-content>
